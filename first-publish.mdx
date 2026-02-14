@@ -1,0 +1,60 @@
+---
+title: "First publish walkthrough"
+description: "A practical workflow for previewing, committing, and pushing docs changes"
+---
+
+This page walks you through one full Mintlify workflow from local preview to GitHub push.
+
+## 1) Run local preview
+
+Make sure your docs repo contains `docs.json`, then start Mintlify locally:
+
+```bash
+mint dev
+```
+
+Open `http://localhost:3000` and keep this process running while you edit pages.
+
+## 2) Make a small docs change
+
+Create or update any `.mdx` page. Keep the first change simple so you can focus on the workflow:
+
+- Update one sentence
+- Add one command example
+- Save and verify the change in local preview
+
+## 3) Commit your change
+
+```bash
+git add .
+git commit -m "docs: update getting started content"
+```
+
+If Git asks for identity, configure it once:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+## 4) Use SSH for GitHub push
+
+If HTTPS push fails, switch your remote to SSH:
+
+```bash
+git remote set-url origin git@github.com:OWNER/REPO.git
+ssh -T git@github.com
+git push
+```
+
+After SSH is configured, future pushes usually work without entering credentials.
+
+## 5) Verify deployment
+
+Once pushed to your default branch, Mintlify GitHub integration deploys updates automatically.
+
+## Troubleshooting
+
+- `nothing to commit, working tree clean`: no file changes yet
+- `could not read Username for 'https://github.com'`: use SSH remote
+- local preview errors from non-doc files: ignore those files via `.mintignore`
