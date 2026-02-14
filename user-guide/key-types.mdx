@@ -1,0 +1,27 @@
+---
+title: "Key Types 与供应商"
+description: "如何选择类型、供应商与 ENV 命名"
+---
+
+## Key Types
+
+常用类型包括：
+
+- LLM
+- Code PAT
+- SaaS
+- SSH
+- Email SMTP
+- Cloud
+- Payment
+- Generic
+
+## 何时用 Generic
+
+当供应商不在预置列表，或你想自定义字段时，使用 Generic 最灵活。
+
+## 命名建议
+
+- 名称格式：`<project>-<provider>-<env>`
+- 示例：`console-openai-prod`
+- 避免使用无语义名称（如 `key1`、`new-token`）

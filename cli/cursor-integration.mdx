@@ -1,0 +1,16 @@
+---
+title: "Cursor 集成"
+description: "让 Agent 安全访问 Key，而不在对话中泄漏明文"
+---
+
+## 推荐流程
+
+1. 安装并配置 `apikey-cli`
+2. 在项目根目录执行 `apikey rules`
+3. 用 `apikey run` 启动需要凭据的任务
+
+## 实践建议
+
+- 默认使用环境变量注入，不传明文
+- 对生产 Key 限制使用范围
+- 定期轮换高权限 Token

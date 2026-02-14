@@ -1,0 +1,46 @@
+name: Docs Structure Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify docs.json page files exist
+        run: |
+          node <<'EOF'
+          const fs = require('fs');
+          const path = require('path');
+
+          const root = process.cwd();
+          const docsPath = path.join(root, 'docs.json');
+          const data = JSON.parse(fs.readFileSync(docsPath, 'utf8'));
+
+          const tabs = (((data || {}).navigation || {}).tabs || []);
+          const pages = [];
+          for (const tab of tabs) {
+            for (const group of (tab.groups || [])) {
+              for (const page of (group.pages || [])) pages.push(page);
+            }
+          }
+
+          const missing = [];
+          for (const page of pages) {
+            const file = path.join(root, `${page}.mdx`);
+            if (!fs.existsSync(file)) missing.push(`${page}.mdx`);
+          }
+
+          if (missing.length) {
+            console.error('Missing pages referenced by docs.json:');
+            for (const m of missing) console.error(`- ${m}`);
+            process.exit(1);
+          }
+          console.log(`Checked ${pages.length} pages; all files exist.`);
+          EOF

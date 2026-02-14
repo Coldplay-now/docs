@@ -1,0 +1,10 @@
+{
+  "name": "apikey-docs",
+  "private": true,
+  "scripts": {
+    "dev": "mintlify dev"
+  },
+  "devDependencies": {
+    "mintlify": "^4.2.348"
+  }
+}

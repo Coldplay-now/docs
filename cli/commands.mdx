@@ -1,0 +1,28 @@
+---
+title: "CLI 常用命令"
+description: "面向开发者与 Agent 的高频命令速查"
+---
+
+## 列表查询
+
+```bash
+apikey list
+```
+
+查看可用 Key 的元数据（名称、供应商、类型、ENV 名）。
+
+## 注入执行
+
+```bash
+apikey run --provider openai -- python main.py
+```
+
+该模式通过环境变量注入，避免把 Key 直接写入命令或日志。
+
+## 生成 Cursor 规则
+
+```bash
+apikey rules
+```
+
+生成 `.cursor/rules/apikey.mdc`，让 Agent 在项目里安全读取凭据。

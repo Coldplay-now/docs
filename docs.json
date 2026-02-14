@@ -1,71 +1,61 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "apikey Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#F97316",
+    "light": "#FB923C",
+    "dark": "#C2410C"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development",
-              "first-publish",
-              "first-publish-zh",
-              "preview-screenshot"
+              "getting-started/install",
+              "getting-started/first-key"
             ]
           },
           {
-            "group": "Customization",
+            "group": "User guide",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "user-guide/dashboard",
+              "user-guide/key-types",
+              "user-guide/import-export"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "CLI for developers",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "cli/install",
+              "cli/commands",
+              "cli/cursor-integration"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Security",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
+              "security/model",
+              "security/best-practices"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Reference",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "reference/providers",
+              "reference/faq"
+            ]
+          },
+          {
+            "group": "Team governance",
+            "pages": [
+              "governance/roles-and-process",
+              "governance/release-process"
             ]
           }
         ]
@@ -74,14 +64,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Product website",
+          "href": "https://coldplay-now.github.io/apikey-website/",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "GitHub",
+          "href": "https://github.com/Coldplay-now/apikey-website",
+          "icon": "github"
         }
       ]
     }
@@ -93,14 +83,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Website",
+        "href": "https://coldplay-now.github.io/apikey-website/"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Download",
+      "href": "https://coldplay-now.github.io/apikey-website/#download"
     }
   },
   "contextual": {

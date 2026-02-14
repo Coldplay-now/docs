@@ -1,57 +1,31 @@
-# Mintlify Starter Kit
+# apikey Docs (Mintlify)
 
-Use the starter kit to get your docs deployed and ready to customize.
+This repository is the standalone documentation source for `apikey`.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Repository role
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+- Product website repo: `apikey-website`
+- Docs repo (this repo): tutorials, CLI guide, security, FAQ, release process
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+## Local preview
 
-## AI-assisted writing
-
-Set up your AI coding tool to work with Mintlify:
+Use Node.js LTS (22 recommended), then run:
 
 ```bash
-npx skills add https://mintlify.com/docs
+npm i
+npx mintlify dev
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+Open `http://localhost:3000` to preview.
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
+## Update workflow
 
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
-mint dev
+```bash
+git checkout -b docs/your-change
+# edit .mdx and docs.json
+git add .
+git commit -m "docs: your change"
+git push
 ```
 
-View your local preview at `http://localhost:3000`.
-
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
-
-Learning note: verified local Mintlify setup on 2026-02-14.
+Create a PR and merge after review. Mintlify deployment runs from `main`.

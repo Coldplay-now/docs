@@ -1,97 +1,40 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "apikey Docs"
+description: "面向用户与开发者的 API Key 管理使用说明"
 ---
 
-## Setting up
+`apikey` 是一个面向 AI 时代的 API Key 管理工具。  
+这套文档用于统一管理安装、桌面端使用、CLI 使用、安全策略与团队发布流程。
 
-Get your documentation site up and running in minutes.
+## 从这里开始
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="安装与环境要求" icon="download" href="/getting-started/install">
+    macOS 安装、系统要求与首次启动检查。
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="1 分钟添加第一个 Key" icon="key" href="/getting-started/first-key">
+    从粘贴识别到复制使用，跑通最短路径。
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## 按角色阅读
 
-Everything you need to create world-class documentation.
+<CardGroup cols={2}>
+  <Card title="用户指南" icon="compass" href="/user-guide/dashboard">
+    Dashboard、Key Types、导入导出与日常操作。
+  </Card>
+  <Card title="开发者与 Agent CLI" icon="terminal" href="/cli/commands">
+    `apikey list/run/rules` 与 Cursor 集成实践。
+  </Card>
+</CardGroup>
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## 运维与治理
 
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+<CardGroup cols={2}>
+  <Card title="安全模型" icon="shield-halved" href="/security/model">
+    Keychain、零上传、自动清除与锁定机制。
+  </Card>
+  <Card title="团队流程" icon="diagram-project" href="/governance/roles-and-process">
+    文档职责边界、评审策略与发布流程。
+  </Card>
+</CardGroup>
