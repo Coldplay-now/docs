@@ -1,0 +1,63 @@
+---
+title: "常见报错处理"
+description: "覆盖本地运行、Git 推送、CLI 注入的高频问题"
+---
+
+## 1) `mintlify dev` 提示 Node 版本不支持
+
+报错示例：
+
+```text
+mint dev is not supported on node versions 25+. Please downgrade to an LTS node version.
+```
+
+处理方式：
+
+```bash
+# macOS Homebrew 示例
+brew install node@22
+PATH="/opt/homebrew/opt/node@22/bin:$PATH" node -v
+PATH="/opt/homebrew/opt/node@22/bin:$PATH" npx mintlify dev
+```
+
+## 2) `git push` 失败：HTTPS 认证问题
+
+报错示例：
+
+```text
+fatal: could not read Username for 'https://github.com': Device not configured
+```
+
+处理方式（改用 SSH）：
+
+```bash
+git remote set-url origin git@github.com:Coldplay-now/<repo>.git
+ssh -T git@github.com
+git push
+```
+
+## 3) `nothing to commit, working tree clean`
+
+含义：当前没有文件改动，所以不能提交。  
+处理方式：先修改文件，再执行 `git add` / `git commit`。
+
+## 4) CLI 注入后程序仍提示缺少 Key
+
+排查顺序：
+
+1. 确认选择的 provider 与程序读取的 ENV 一致
+2. 用 `apikey list` 检查该 Key 是否存在
+3. 先用一个最小命令验证注入是否成功
+
+```bash
+apikey run --provider openai -- /usr/bin/env | rg OPENAI_API_KEY
+```
+
+## 5) 文档页面 404 或导航点不开
+
+常见原因：
+
+- `docs.json` 里引用了不存在的页面
+- 页面文件名与路径大小写不一致
+
+建议在 PR 中执行结构检查，确保 `docs.json` 与实际 `.mdx` 文件一致。
