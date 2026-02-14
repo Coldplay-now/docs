@@ -11,6 +11,15 @@ apikey list
 
 查看可用 Key 的元数据（名称、供应商、类型、ENV 名）。
 
+示例输出：
+
+```bash
+$ apikey list
+NAME        PROVIDER   TYPE      ENV
+Deepseek    DeepSeek   LLM       OPENAI_API_KEY
+github      GitHub     CODE PAT  GITHUB_TOKEN
+```
+
 ## 注入执行
 
 ```bash
@@ -19,6 +28,24 @@ apikey run --provider openai -- python main.py
 
 该模式通过环境变量注入，避免把 Key 直接写入命令或日志。
 
+更多真实场景：
+
+```bash
+# Node.js
+apikey run --provider anthropic -- node scripts/test-anthropic.js
+
+# Python + dotenv-free runtime
+apikey run --provider deepseek -- python examples/chat.py
+```
+
+建议先在程序里校验环境变量是否存在：
+
+```bash
+echo $OPENAI_API_KEY
+```
+
+<Warning>不要把 `echo $OPENAI_API_KEY` 的输出截图或粘贴到聊天工具。</Warning>
+
 ## 生成 Cursor 规则
 
 ```bash
@@ -26,3 +53,11 @@ apikey rules
 ```
 
 生成 `.cursor/rules/apikey.mdc`，让 Agent 在项目里安全读取凭据。
+
+典型流程：
+
+```bash
+apikey rules
+git status
+# 看到 .cursor/rules/apikey.mdc 后，再按项目规范决定是否提交
+```

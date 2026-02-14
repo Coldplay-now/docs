@@ -48,7 +48,8 @@
             "group": "Reference",
             "pages": [
               "reference/providers",
-              "reference/faq"
+              "reference/faq",
+              "reference/troubleshooting"
             ]
           },
           {
