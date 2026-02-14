@@ -1,0 +1,60 @@
+---
+title: "首次发布实战（中文）"
+description: "从本地预览到提交推送的一次完整 Mintlify 流程"
+---
+
+这篇文档带你走完一次完整流程：本地预览 -> 修改文档 -> 提交 -> 推送。
+
+## 1）启动本地预览
+
+先确认当前目录有 `docs.json`，然后运行：
+
+```bash
+mint dev
+```
+
+浏览器打开 `http://localhost:3000`，保持这个进程运行，再去编辑文档。
+
+## 2）先做一个小改动
+
+建议先改一个很小的点，便于快速验证流程：
+
+- 修改一行说明文字
+- 补一个命令示例
+- 保存后在本地预览确认变化
+
+## 3）提交改动
+
+```bash
+git add .
+git commit -m "docs: 更新入门文档"
+```
+
+如果 Git 首次提示身份信息，执行一次全局配置：
+
+```bash
+git config --global user.name "你的名字"
+git config --global user.email "你的邮箱"
+```
+
+## 4）使用 SSH 推送到 GitHub
+
+如果 HTTPS 推送报错，可以切换为 SSH：
+
+```bash
+git remote set-url origin git@github.com:OWNER/REPO.git
+ssh -T git@github.com
+git push
+```
+
+SSH 配置完成后，后续推送通常不需要再输入账号密码。
+
+## 5）确认线上发布
+
+推送到默认分支后，Mintlify 的 GitHub 集成会自动触发部署。
+
+## 常见问题
+
+- `nothing to commit, working tree clean`：当前没有文件改动
+- `could not read Username for 'https://github.com'`：切换为 SSH 远程地址
+- 本地预览报 MDX 解析错误：把非文档文件加入 `.mintignore`
